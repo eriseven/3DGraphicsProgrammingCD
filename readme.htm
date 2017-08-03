@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>3D 繪圖程式設計</title>
+</head>
+<body>
+
+<div align=center>
+<H1>3D 繪圖程式設計</H1>
+<H2>使用 Direct3D9/10 與 OpenGL</H2>
+</div>
+
+<div align=right>
+彭國倫<br>
+<a href="mailto:realtimegraphics@gmail.com">realtimegraphics@gmail.com</a><br>
+<a href="http://cmlab.csie.ntu.edu.tw/~perng/3D">http://cmlab.csie.ntu.edu.tw/~perng/3D</a>
+</div>
+
+<p>
+範例程式需要用 Visual C++ 與 DirectX SDK 來編譯，如果讀者使用的是專業版的 Visual C++ ，應該就有內附 DirectX SDK。雖然不是完整的版本，但是已經足夠用來編譯範例程式。
+</p>
+
+<ul>
+<li><a href="http://www.microsoft.com/express/">http://www.microsoft.com/express/</a> 可以下載 Visual Studio Express Editions。</li><p>
+<li><a href="http://msdn.microsoft.com/en-us/directx/">http://msdn.microsoft.com/en-us/directx/</a> 可以下載 DirectX SDK。</li><p>
+<li>最好是先安裝 Visual C++ ，再安裝 DirectX SDK 。反過來安裝並沒有不行，只是要自行手動設定 include files 跟 library files 的路徑。</li>
+<br><img src="./html/include_path.jpg"/><br>
+<br><img src="./html/library_path.jpg"/><br>
+</ul>
+
+<p>
+編譯範例程式時，有幾點要注意。
+</p>
+
+<ul>
+<li>Startup Project 不要設成 glib ，它是被所有範例程式共用的程式庫，並不會輸出執行檔。要把 Startup Project 設定成主程式所在的 Project 。</li>
+<br><img src="./html/active_project.jpg"/><p>
+<li>每個 project/solution 都有 4 種編譯模式， Debug 、 Debug_DX10 、 Release 、 Release_DX10 。字尾有 DX10 的模式才會編譯 Direct3D10 的程式碼，非 DX10 的模式只支援 Direct3D9 與 OpenGL。想放中斷點來一步步執行程式時，請使用 Debug 、 Debug_DX10 這兩種模式。</li>
+<br><img src="./html/configuration.jpg"/><p>
+<li>編譯過程所產生的檔案，會輸出到 3DGraphicsProgramming/Bin 目錄下。Debug、Debug_DX10 模式所產生的執行檔，也會輸出到 3DGraphicsProgramming/Bin 目錄裡。Release、Release_DX10 模式所產生的執行檔，則是跟 C++ 原始碼放在相同目錄下。</li><p>
+<li>有些 OpenGL 範例需要用到擴充功能，驅動程式若沒有支援，程式有可能會當機。使用這些擴充功能前，理論上都要先檢查硬體的支援程度，本書範例程式並不是每一個都有去仔細檢查。</li><p>
+<li>某些 Direct3D9 範例在舊的硬體上會無法執行，或者是看到錯誤的結果。例如第 7 章裡某些使用貼圖投影計算的程式，跟第 8 章裡使用 two-sided stencil buffer 功能的程式。</li><p>
+<li>並不是每個範例程式都正確的支援縮放視窗功能，想要修正不難，讀者可以自行嘗試。</li><p>
+<li>可以把顯示卡 OpenGL 驅動程式裡的等待垂直同步功能打開，不然有些 OpenGL 範例會跑太快，滑鼠跟鍵盤操作感覺上也會變慢。</li><p>
+<li><a href="http://cmlab.csie.ntu.edu.tw/~perng/3D">本書網頁</a>可以下載最新版本的範例程式。</li><p>
+</ul>
+
+</body>
+</html>
